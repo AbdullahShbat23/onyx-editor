@@ -31,7 +31,6 @@ body {
 
 /* ================= PARALLAX FIX ================= */
 
-/* Contain all parallax elements */
 .parallax {
   position: relative;
   overflow: hidden;
@@ -59,7 +58,7 @@ body {
   display: block;
 }
 
-/* ================= WHY SECTION (STACKING GUARD) ================= */
+/* ================= SECTION STACKING ================= */
 
 section {
   position: relative;
@@ -83,7 +82,8 @@ section {
   align-items: stretch;
 }
 
-/* Cards */
+/* ================= CARDS ================= */
+
 .glass-card {
   background: rgba(15,15,15,.9);
   backdrop-filter: blur(16px);
@@ -92,7 +92,6 @@ section {
   padding: 2.5rem;
   min-height: 280px;
 
-  /* HARD CONTAINMENT (prevents collapse / triangle bug) */
   transform: none !important;
   position: relative;
   z-index: 2;
@@ -102,19 +101,29 @@ section {
 .glass-card h4 {
   font-size: 1.35rem;
   font-weight: 900;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
 }
 
 .glass-card p {
   color: #a1a1aa;
   line-height: 1.9;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0;
 }
 
 .glass-card span {
+  display: block;
+  margin-top: 2.5rem;
   color: var(--red);
   font-weight: 900;
-  font-size: 1.15rem;
+  font-size: 1.25rem;
+}
+
+/* ================= PRICE CONTENT ================= */
+
+.price-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
 }
 
 /* ================= FEATURED (MONTHLY) ================= */
@@ -123,10 +132,27 @@ section {
   grid-column: 1 / -1;
   text-align: center;
   min-height: 340px;
-
   animation: aggressiveGlow 2.8s infinite ease-in-out;
 }
 
+/* 🔥 HORIZONTAL WORDS FOR MONTHLY */
+.featured .price-content.center {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  margin-top: 1.5rem;
+}
+
+/* Make text feel structured, not squashed */
+.featured .price-content.center p {
+  white-space: nowrap;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+/* Strong glow */
 @keyframes aggressiveGlow {
   0% {
     box-shadow:
@@ -168,24 +194,28 @@ section {
   transform: scale(1.05);
 }
 
-/* ================= MOBILE FIX (CRITICAL) ================= */
+/* ================= MOBILE FIX ================= */
 
 @media (max-width: 900px) {
 
-  /* Disable parallax behavior ONLY on mobile */
   .parallax,
   .parallax * {
     transform: none !important;
     position: relative !important;
   }
 
-  /* Prevent video overflow */
   .video-card {
     max-height: 70vh;
   }
 
   .pricing-grid {
     grid-template-columns: 1fr;
+  }
+
+  /* Monthly stacks cleanly on mobile */
+  .featured .price-content.center {
+    flex-direction: column;
+    gap: 1.25rem;
   }
 
   .featured {
