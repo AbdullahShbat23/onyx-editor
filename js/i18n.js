@@ -119,7 +119,3 @@ function setLanguage(lang) {
 }
 
 setLanguage(currentLang);
-
-document.getElementById("langToggle").addEventListener("click", () => {
-  setLanguage(currentLang === "ar" ? "en" : "ar");
-});
