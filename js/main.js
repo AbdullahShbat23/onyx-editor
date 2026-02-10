@@ -16,21 +16,14 @@ document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
 const langBtn = document.getElementById("langToggle");
 
 langBtn.addEventListener("click", () => {
-  const newLang = currentLang === "ar" ? "en" : "ar";
-  langBtn.setAttribute("aria-pressed", newLang === "ar");
-  setLanguage(newLang);
+  const nextLang = currentLang === "ar" ? "en" : "ar";
+  langBtn.setAttribute("aria-pressed", nextLang === "ar");
+  setLanguage(nextLang);
 });
 
 /* ================= PARALLAX (DESKTOP ONLY) ================= */
 
-/*
-  🔒 CRITICAL FIX:
-  - Disable parallax entirely on mobile
-  - This is what caused videos to float over sections
-*/
-
 const isMobile = window.matchMedia("(max-width: 900px)").matches;
-
 let ticking = false;
 
 if (!isMobile) {
@@ -46,7 +39,6 @@ if (!isMobile) {
     }
   });
 } else {
-  /* Hard reset transforms on mobile */
   document.querySelectorAll(".parallax").forEach(el => {
     el.style.transform = "none";
   });
@@ -88,27 +80,22 @@ document.querySelectorAll(".video-card").forEach(card => {
     if (video.paused) {
       playVideo();
     } else {
-      video.pause(); // no reset
+      video.pause();
     }
   };
 
-  /* Desktop hover */
   if (!isMobile) {
     card.addEventListener("mouseenter", playVideo);
     card.addEventListener("mouseleave", () => {
-      if (activeVideo === video) {
-        video.pause();
-      }
+      if (activeVideo === video) video.pause();
     });
   }
 
-  /* Mobile tap */
   card.addEventListener("click", e => {
     e.preventDefault();
     toggleVideo();
   });
 
-  /* Reset when finished */
   video.addEventListener("ended", () => {
     video.currentTime = 0;
     if (activeVideo === video) activeVideo = null;
