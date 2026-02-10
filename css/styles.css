@@ -3,6 +3,10 @@
   --dark: #0a0a0a;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-family: 'Noto Kufi Arabic', sans-serif;
   background: var(--dark);
@@ -25,6 +29,15 @@ body {
   transform: translateY(0) scale(1);
 }
 
+/* ================= PARALLAX FIX ================= */
+
+/* Contain all parallax elements */
+.parallax {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
 /* ================= VIDEO ================= */
 
 .video-card {
@@ -36,6 +49,7 @@ body {
   border: 1px solid rgba(255,255,255,.1);
   background: #000;
   cursor: pointer;
+  z-index: 1;
 }
 
 .video-card video {
@@ -43,6 +57,13 @@ body {
   height: 100%;
   object-fit: cover;
   display: block;
+}
+
+/* ================= WHY SECTION (STACKING GUARD) ================= */
+
+section {
+  position: relative;
+  z-index: 2;
 }
 
 /* ================= PRICING ================= */
@@ -71,7 +92,7 @@ body {
   padding: 2.5rem;
   min-height: 280px;
 
-  /* CRITICAL FIX */
+  /* HARD CONTAINMENT (prevents collapse / triangle bug) */
   transform: none !important;
   position: relative;
   z-index: 2;
@@ -87,7 +108,7 @@ body {
 .glass-card p {
   color: #a1a1aa;
   line-height: 1.9;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 }
 
 .glass-card span {
@@ -96,7 +117,7 @@ body {
   font-size: 1.15rem;
 }
 
-/* ================= FEATURED ================= */
+/* ================= FEATURED (MONTHLY) ================= */
 
 .featured {
   grid-column: 1 / -1;
@@ -106,7 +127,6 @@ body {
   animation: aggressiveGlow 2.8s infinite ease-in-out;
 }
 
-/* Strong glow */
 @keyframes aggressiveGlow {
   0% {
     box-shadow:
@@ -148,9 +168,22 @@ body {
   transform: scale(1.05);
 }
 
-/* ================= MOBILE ================= */
+/* ================= MOBILE FIX (CRITICAL) ================= */
 
 @media (max-width: 900px) {
+
+  /* Disable parallax behavior ONLY on mobile */
+  .parallax,
+  .parallax * {
+    transform: none !important;
+    position: relative !important;
+  }
+
+  /* Prevent video overflow */
+  .video-card {
+    max-height: 70vh;
+  }
+
   .pricing-grid {
     grid-template-columns: 1fr;
   }
