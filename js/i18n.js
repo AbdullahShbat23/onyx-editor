@@ -88,6 +88,7 @@ const translations = {
 
 let currentLang = "ar";
 
+/* Price animation helper */
 function animatePrice(el, newText) {
   el.classList.add("price-fade-out");
 
@@ -102,6 +103,7 @@ function animatePrice(el, newText) {
   }, 200);
 }
 
+/* Language setter */
 function setLanguage(lang) {
   currentLang = lang;
   document.documentElement.lang = lang;
@@ -109,6 +111,7 @@ function setLanguage(lang) {
 
   document.querySelectorAll("[data-i18n]").forEach(el => {
     const key = el.dataset.i18n;
+    if (!translations[lang][key]) return;
 
     if (key.includes("price")) {
       animatePrice(el, translations[lang][key]);
@@ -118,4 +121,5 @@ function setLanguage(lang) {
   });
 }
 
+/* Initial load */
 setLanguage(currentLang);
