@@ -1,121 +1,118 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>ONYX — Cinematic Editing</title>
-  <meta name="description" content="High-impact cinematic video editing for brands and content creators." />
+<title>ONYX — Cinematic Editing</title>
+<meta name="description" content="High-impact cinematic video editing for brands and content creators." />
 
-  <!-- Tailwind -->
-  <script src="https://cdn.tailwindcss.com"></script>
+<!-- Tailwind -->
+<script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@400;700;900&display=swap" rel="stylesheet">
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="css/styles.css">
+<link href="https://fonts.googleapis.com/css2?
+family=Cinzel:wght@600;700;900&
+family=Inter:wght@400;600;700;900&
+family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&
+display=swap" rel="stylesheet">
+
+<!-- Custom CSS -->
+<link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
 
 <!-- Language Toggle -->
 <button
-  id="langToggle"
-  aria-label="Toggle language"
-  aria-pressed="true"
-  class="fixed top-6 left-6 z-50 text-xs border px-4 py-2 rounded-full">
-  AR / EN
+id="langToggle"
+aria-label="Toggle language"
+aria-pressed="true"
+class="fixed top-6 left-6 z-50 text-xs border px-4 py-2 rounded-full">
+AR / EN
 </button>
 
 <header class="min-h-screen flex flex-col justify-center items-center text-center px-6 parallax">
-  <h1 class="text-5xl md:text-7xl font-black reveal" data-i18n="hero.title"></h1>
-  <p class="mt-6 text-zinc-400 max-w-xl reveal" data-i18n="hero.subtitle"></p>
-  <span class="mt-10 text-xs tracking-widest text-zinc-500 reveal" data-i18n="hero.scroll"></span>
+<h1 class="text-5xl md:text-7xl font-black reveal" data-i18n="hero.title"></h1>
+<p class="mt-6 text-zinc-400 max-w-xl reveal" data-i18n="hero.subtitle"></p>
+<span class="mt-10 text-xs tracking-widest text-zinc-500 reveal" data-i18n="hero.scroll"></span>
 </header>
 
 <main>
 
 <!-- WORK -->
 <section class="py-32 px-6 max-w-7xl mx-auto">
-  <h2 class="text-4xl font-black text-center mb-16 reveal" data-i18n="work.title"></h2>
+<h2 class="text-4xl font-black text-center mb-16 reveal" data-i18n="work.title"></h2>
 
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-    <div class="video-card reveal parallax" data-video="assets/videos/IMG_6290.MP4"></div>
-    <div class="video-card reveal parallax" data-video="assets/videos/IMG_6291.MP4"></div>
-    <div class="video-card reveal parallax" data-video="assets/videos/IMG_6293.MP4"></div>
-  </div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="video-card reveal parallax" data-video="assets/videos/IMG_6290.MP4"></div>
+<div class="video-card reveal parallax" data-video="assets/videos/IMG_6291.MP4"></div>
+<div class="video-card reveal parallax" data-video="assets/videos/IMG_6293.MP4"></div>
+</div>
 </section>
 
 <!-- WHY -->
 <section class="py-32 bg-black px-6 text-center">
-  <h3 class="text-4xl font-black reveal" data-i18n="why.title"></h3>
-  <p class="text-zinc-400 reveal max-w-3xl mx-auto" data-i18n="why.text"></p>
+<h3 class="text-4xl font-black reveal" data-i18n="why.title"></h3>
+<p class="text-zinc-400 reveal max-w-3xl mx-auto" data-i18n="why.text"></p>
 </section>
 
 <!-- PRICING -->
 <section class="pricing-section">
-  <h3 class="text-4xl font-black mb-16 text-center reveal" data-i18n="pricing.title"></h3>
+<h3 class="text-4xl font-black mb-16 text-center reveal" data-i18n="pricing.title"></h3>
 
-  <div class="pricing-grid">
+<div class="pricing-grid">
 
-    <!-- BASIC -->
-    <div class="glass-card reveal parallax">
-      <h4 data-i18n="pricing.basic.title"></h4>
+<!-- BASIC -->
+<div class="glass-card reveal parallax">
+<h4 data-i18n="pricing.basic.title"></h4>
+<div class="price-content">
+<p data-i18n="pricing.basic.line1"></p>
+<p data-i18n="pricing.basic.line2"></p>
+<p data-i18n="pricing.basic.line3"></p>
+</div>
+<span data-i18n="pricing.basic.price"></span>
+</div>
 
-      <div class="price-content">
-        <p data-i18n="pricing.basic.line1"></p>
-        <p data-i18n="pricing.basic.line2"></p>
-        <p data-i18n="pricing.basic.line3"></p>
-      </div>
+<!-- ADVANCED -->
+<div class="glass-card reveal parallax">
+<h4 data-i18n="pricing.advanced.title"></h4>
+<div class="price-content">
+<p data-i18n="pricing.advanced.line1"></p>
+<p data-i18n="pricing.advanced.line2"></p>
+<p data-i18n="pricing.advanced.line3"></p>
+<p data-i18n="pricing.advanced.line4"></p>
+</div>
+<span data-i18n="pricing.advanced.price"></span>
+</div>
 
-      <span data-i18n="pricing.basic.price"></span>
-    </div>
+<!-- PRO -->
+<div class="glass-card reveal parallax">
+<h4 data-i18n="pricing.pro.title"></h4>
+<div class="price-content">
+<p data-i18n="pricing.pro.line1"></p>
+<p data-i18n="pricing.pro.line2"></p>
+<p data-i18n="pricing.pro.line3"></p>
+</div>
+<span data-i18n="pricing.pro.price"></span>
+</div>
 
-    <!-- ADVANCED -->
-    <div class="glass-card reveal parallax">
-      <h4 data-i18n="pricing.advanced.title"></h4>
+<!-- MONTHLY -->
+<div class="glass-card featured wide-card reveal parallax">
+<h4 data-i18n="pricing.monthly.title"></h4>
+<div class="price-content center">
+<p data-i18n="pricing.monthly.line1"></p>
+<p data-i18n="pricing.monthly.line2"></p>
+<p data-i18n="pricing.monthly.line3"></p>
+<p data-i18n="pricing.monthly.line4"></p>
+</div>
+<span data-i18n="pricing.monthly.price"></span>
+</div>
 
-      <div class="price-content">
-        <p data-i18n="pricing.advanced.line1"></p>
-        <p data-i18n="pricing.advanced.line2"></p>
-        <p data-i18n="pricing.advanced.line3"></p>
-        <p data-i18n="pricing.advanced.line4"></p>
-      </div>
-
-      <span data-i18n="pricing.advanced.price"></span>
-    </div>
-
-    <!-- PRO -->
-    <div class="glass-card reveal parallax">
-      <h4 data-i18n="pricing.pro.title"></h4>
-
-      <div class="price-content">
-        <p data-i18n="pricing.pro.line1"></p>
-        <p data-i18n="pricing.pro.line2"></p>
-        <p data-i18n="pricing.pro.line3"></p>
-      </div>
-
-      <span data-i18n="pricing.pro.price"></span>
-    </div>
-
-    <!-- MONTHLY -->
-    <div class="glass-card featured wide-card reveal parallax">
-      <h4 data-i18n="pricing.monthly.title"></h4>
-
-      <div class="price-content center">
-        <p data-i18n="pricing.monthly.line1"></p>
-        <p data-i18n="pricing.monthly.line2"></p>
-        <p data-i18n="pricing.monthly.line3"></p>
-        <p data-i18n="pricing.monthly.line4"></p>
-      </div>
-
-      <span data-i18n="pricing.monthly.price"></span>
-    </div>
-
-  </div>
+</div>
 </section>
 
 <!-- SPACER -->
@@ -123,12 +120,12 @@
 
 <!-- CTA -->
 <section class="py-32 px-6 text-center">
-  <h3 class="text-5xl font-black mb-12 reveal" data-i18n="cta.title"></h3>
+<h3 class="text-5xl font-black mb-12 reveal" data-i18n="cta.title"></h3>
 
-  <div class="flex justify-center gap-6 reveal">
-    <a href="https://wa.me/963980573635" class="btn-whatsapp" data-i18n="cta.whatsapp"></a>
-    <a href="https://instagram.com/_.al_monter._" class="btn-instagram" data-i18n="cta.instagram"></a>
-  </div>
+<div class="flex justify-center gap-6 reveal">
+<a href="https://wa.me/963980573635" class="btn-whatsapp" data-i18n="cta.whatsapp"></a>
+<a href="https://instagram.com/_.al_monter._" class="btn-instagram" data-i18n="cta.instagram"></a>
+</div>
 </section>
 
 </main>
@@ -137,5 +134,6 @@
 
 <script src="js/i18n.js"></script>
 <script src="js/main.js"></script>
+
 </body>
 </html>
