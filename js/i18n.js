@@ -103,7 +103,7 @@ function animatePrice(el, newText) {
   }, 200);
 }
 
-/* Language setters */
+/* Language setter */
 function setLanguage(lang) {
   currentLang = lang;
   document.documentElement.lang = lang;
