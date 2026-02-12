@@ -10,15 +10,17 @@
 <!-- Tailwind -->
 <script src="https://cdn.tailwindcss.com"></script>
 
+
 <!-- Google Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
+
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 <link href="https://fonts.googleapis.com/css2?
 family=Cinzel:wght@600;700;900&
-family=Inter:wght@400;600;700;900&
-family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&
+family=Bebas+Neue&
+family=Changa:wght@400;600;700;800&
 display=swap" rel="stylesheet">
+
 
 <!-- Custom CSS -->
 <link rel="stylesheet" href="css/styles.css">
@@ -26,14 +28,19 @@ display=swap" rel="stylesheet">
 
 <body>
 
-<!-- ================= BACKGROUND VIDEO (ADDED) ================= -->
-<video autoplay muted loop playsinline id="bg-video">
-  <!-- 🔥 PUT YOUR VIDEO PATH HERE -->
+<!-- ================= INTRO OVERLAY (ADDED) ================= -->
+<div id="intro-overlay">
+  <video id="intro-video" muted playsinline preload="auto">
+    <source src="assets/videos/intro.mp4" type="video/mp4">
+  </video>
+</div>
+<!-- ========================================================= -->
+
+<!-- ================= BACKGROUND VIDEO ================= -->
+<video autoplay muted loop playsinline preload="none" poster="assets/videos/poster.jpg" id="bg-video">
   <source src="assets/videos/video4.mp4" type="video/mp4">
 </video>
-<!-- ============================================================ -->
 
-<!-- Language Toggle -->
 <button
 id="langToggle"
 aria-label="Toggle language"
@@ -50,7 +57,6 @@ AR / EN
 
 <main>
 
-<!-- WORK -->
 <section class="py-32 px-6 max-w-7xl mx-auto">
 <h2 class="text-4xl font-black text-center mb-16 reveal" data-i18n="work.title"></h2>
 
@@ -61,19 +67,16 @@ AR / EN
 </div>
 </section>
 
-<!-- WHY -->
 <section class="py-32 px-6 text-center">
 <h3 class="text-4xl font-black reveal" data-i18n="why.title"></h3>
 <p class="text-zinc-400 reveal max-w-3xl mx-auto" data-i18n="why.text"></p>
 </section>
 
-<!-- PRICING -->
 <section class="pricing-section">
 <h3 class="text-4xl font-black mb-16 text-center reveal" data-i18n="pricing.title"></h3>
 
 <div class="pricing-grid">
 
-<!-- BASIC -->
 <div class="glass-card reveal parallax">
 <h4 data-i18n="pricing.basic.title"></h4>
 <div class="price-content">
@@ -84,7 +87,6 @@ AR / EN
 <span data-i18n="pricing.basic.price"></span>
 </div>
 
-<!-- ADVANCED -->
 <div class="glass-card reveal parallax">
 <h4 data-i18n="pricing.advanced.title"></h4>
 <div class="price-content">
@@ -96,7 +98,6 @@ AR / EN
 <span data-i18n="pricing.advanced.price"></span>
 </div>
 
-<!-- PRO -->
 <div class="glass-card reveal parallax">
 <h4 data-i18n="pricing.pro.title"></h4>
 <div class="price-content">
@@ -107,7 +108,6 @@ AR / EN
 <span data-i18n="pricing.pro.price"></span>
 </div>
 
-<!-- MONTHLY -->
 <div class="glass-card featured wide-card reveal parallax">
 <h4 data-i18n="pricing.monthly.title"></h4>
 <div class="price-content center">
@@ -122,10 +122,8 @@ AR / EN
 </div>
 </section>
 
-<!-- SPACER -->
 <section class="section-spacer"></section>
 
-<!-- CTA -->
 <section class="py-32 px-6 text-center">
 <h3 class="text-5xl font-black mb-12 reveal" data-i18n="cta.title"></h3>
 
@@ -141,6 +139,16 @@ AR / EN
 
 <script src="js/i18n.js"></script>
 <script src="js/main.js"></script>
+
+<script>
+if (window.matchMedia("(max-width: 900px)").matches) {
+  const bgVideo = document.getElementById("bg-video");
+  if (bgVideo) {
+    bgVideo.pause();
+    bgVideo.removeAttribute("autoplay");
+  }
+}
+</script>
 
 </body>
 </html>
