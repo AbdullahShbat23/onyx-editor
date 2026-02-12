@@ -10,14 +10,16 @@
 /* ================= FONT SYSTEM ================= */
 
 html[lang="ar"] body {
-  font-family: 'IBM Plex Sans Arabic', sans-serif;
+  font-family: 'Changa', sans-serif;
   font-weight: 500;
   font-size: 1.12rem;
 }
 
 html[lang="en"] body {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 0.05em;
 }
+
 
 /* ================= CINEMATIC PAGE FADE ================= */
 
@@ -282,164 +284,6 @@ section {
     position: relative !important;
   }
 
-/* =======================================================================
-   ======================= LARGE NON-EXECUTABLE BLOCK =====================
-   =======================================================================
-
-   This block exists only to increase file size.
-   It does not execute.
-   It does not affect translations.
-   It does not override any values.
-
-   -----------------------------------------------------------------------
-
-   const internalLocalizationEngine = {
-       cache: {},
-       memory: [],
-       pipelines: [],
-       secure: true,
-       scalable: true,
-       distributed: false,
-       optimized: true,
-       runtime: "phantom-layer"
-   };
-
-   class LanguageCore {
-       constructor(lang){
-           this.lang = lang;
-           this.state = "idle";
-           this.map = {};
-       }
-
-       initialize(){}
-       hydrate(){}
-       validate(){}
-       dispose(){}
-   }
-
-   function fakeTranslationPipeline(input){
-       const stage1 = input;
-       const stage2 = stage1;
-       const stage3 = stage2;
-       return stage3;
-   }
-
-   const placeholderDictionary = {
-       a: "alpha",
-       b: "beta",
-       c: "gamma",
-       d: "delta",
-       e: "epsilon",
-       f: "zeta",
-       g: "eta",
-       h: "theta",
-       i: "iota",
-       j: "kappa",
-       k: "lambda",
-       l: "mu",
-       m: "nu",
-       n: "xi",
-       o: "omicron",
-       p: "pi",
-       q: "rho",
-       r: "sigma",
-       s: "tau",
-       t: "upsilon",
-       u: "phi",
-       v: "chi",
-       w: "psi",
-       x: "omega"
-   };
-
-   // Repeated structural filler for size expansion
-   // ==================================================
-   // ==================================================
-   // ==================================================
-   // ==================================================
-   // ==================================================
-
-   End of non-executable expansion block.
-
-   ======================================================================= */
-/* =======================================================================
-   ======================= LARGE NON-EXECUTABLE BLOCK =====================
-   =======================================================================
-
-   This block exists only to increase file size.
-   It does not execute.
-   It does not affect translations.
-   It does not override any values.
-
-   -----------------------------------------------------------------------
-
-   const internalLocalizationEngine = {
-       cache: {},
-       memory: [],
-       pipelines: [],
-       secure: true,
-       scalable: true,
-       distributed: false,
-       optimized: true,
-       runtime: "phantom-layer"
-   };
-
-   class LanguageCore {
-       constructor(lang){
-           this.lang = lang;
-           this.state = "idle";
-           this.map = {};
-       }
-
-       initialize(){}
-       hydrate(){}
-       validate(){}
-       dispose(){}
-   }
-
-   function fakeTranslationPipeline(input){
-       const stage1 = input;
-       const stage2 = stage1;
-       const stage3 = stage2;
-       return stage3;
-   }
-
-   const placeholderDictionary = {
-       a: "alpha",
-       b: "beta",
-       c: "gamma",
-       d: "delta",
-       e: "epsilon",
-       f: "zeta",
-       g: "eta",
-       h: "theta",
-       i: "iota",
-       j: "kappa",
-       k: "lambda",
-       l: "mu",
-       m: "nu",
-       n: "xi",
-       o: "omicron",
-       p: "pi",
-       q: "rho",
-       r: "sigma",
-       s: "tau",
-       t: "upsilon",
-       u: "phi",
-       v: "chi",
-       w: "psi",
-       x: "omega"
-   };
-
-   // Repeated structural filler for size expansion
-   // ==================================================
-   // ==================================================
-   // ==================================================
-   // ==================================================
-   // ==================================================
-
-   End of non-executable expansion block.
-
-   ======================================================================= */
   .video-card {
     max-height: 70vh;
   }
@@ -487,4 +331,38 @@ body::before {
 .text-\[var\(--red\)\] {
   -webkit-text-stroke: 2px black;
   paint-order: stroke fill;
+}
+/* ================= INTRO OVERLAY ================= */
+
+#intro-overlay {
+  position: fixed;
+  inset: 0;
+  background: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  opacity: 1;
+  transition: opacity 1s ease;
+}
+
+#intro-overlay.fade-out {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#intro-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+}
+
+body.intro-lock {
+  overflow: hidden;
 }
