@@ -3,7 +3,10 @@
 const observer = new IntersectionObserver(
   entries => {
     entries.forEach(entry => {
-      entry.target.classList.toggle("active", entry.isIntersecting);
+      if (entry.isIntersecting) {
+        entry.target.classList.add("active");
+        observer.unobserve(entry.target);
+      }
     });
   },
   { threshold: 0.15 }
@@ -101,3 +104,30 @@ document.querySelectorAll(".video-card").forEach(card => {
     if (activeVideo === video) activeVideo = null;
   });
 });
+/* ================= INTRO LOGIC ================= */
+
+const introOverlay = document.getElementById("intro-overlay");
+const introVideo = document.getElementById("intro-video");
+
+if (!sessionStorage.getItem("introPlayed")) {
+
+  document.body.classList.add("intro-lock");
+
+  introVideo.play().catch(() => {});
+
+  introVideo.addEventListener("ended", () => {
+    introOverlay.classList.add("fade-out");
+
+    setTimeout(() => {
+      introOverlay.remove();
+      document.body.classList.remove("intro-lock");
+    }, 1000);
+
+    sessionStorage.setItem("introPlayed", "true");
+  });
+
+} else {
+  if (introOverlay) {
+    introOverlay.remove();
+  }
+}
